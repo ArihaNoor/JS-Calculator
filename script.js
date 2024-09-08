@@ -4,10 +4,18 @@ const operator = document.querySelectorAll("button");
 
 // console.log(operator)
 
-const calculate = (operator) => {
-  const btnValue = operator.target.value;
+const calculate = (index) => {
+  const btnValue = index.target.value;
+  // console.log(btnValue)
   if (btnValue === "=") {
-    if (screen.value !== "") screen.value = "=" + eval(screen.value);
+    if (screen.value !== ""){
+      let string = "=";
+      let num = eval(screen.value)
+      screen.value = string.concat(num.toPrecision(3))
+      // screen.value = "=" + eval(screen.value)
+    }else{
+      alert("Expression Missing")
+    }
   } else if (btnValue === "AC") {
     screen.value = "";
   } else if (btnValue === "C") {
